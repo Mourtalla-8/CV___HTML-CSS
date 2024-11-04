@@ -1,0 +1,431 @@
+/* Style global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f4f4f9;
+  color: #343434;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.container {
+  display: flex;
+  width: 595px;
+  height: auto;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Style de la section gauche */
+.left {
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Partie haute de la section gauche */
+.left-up {
+  height: auto;
+  background-color: rgba(255, 191, 191, 1);
+  padding: 20px;
+  position: relative;
+}
+
+.circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  top: -10px;
+  left: -12px;
+}
+
+.profile-picture .svg {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: rgba(143, 162, 171, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+}
+
+.profile-picture .svg svg {
+  width: 90%;
+  height: 90%;
+  fill: white;
+}
+
+.about h2 {
+  font-family: 'Helvetica', sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  color: #fff;
+  text-align: right;
+}
+
+.about hr {
+  border: none;
+  height: 1px;
+  background-color: #fff;
+  margin-bottom: 7px;
+}
+
+.about p {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 1);
+  text-align: justify;
+  line-height: 1.4;
+}
+
+
+/* Partie basse de la section gauche */
+.left-down {
+  background-color: rgba(196, 196, 196, 0.2);
+  padding: 20px;
+  flex-grow: 1;
+  margin-top: 10px;
+  position: relative;
+}
+
+.left-down h2 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  color: #343434;
+  text-align: right;
+}
+
+.left-down hr {
+  border: none;
+  height: 1px;
+  background-color: #343434;
+  margin-bottom: 15px;
+}
+
+
+/* Style de la section droite */
+.right {
+  width: 315px;
+  padding: 20px;
+}
+
+.header h1 {
+  font-family: 'Bellota Text', sans-serif;
+  font-weight: 300;
+  font-size: 36px;
+  color: #333;
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.header p {
+  margin-bottom: 20px;
+}
+
+.education, .projects, .hobbies {
+  margin-top: 5px;
+}
+
+.contact h2, .education h2, .projects h2, .hobbies h2 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  color: #343434;
+}
+
+.contact hr, .education hr, .projects hr, .hobbies hr {
+  border: none;
+  height: 1px;
+  background-color: #343434;
+  margin-bottom: 12px;
+}
+
+
+
+/* Section Skills */
+.skills {
+  margin-bottom: 30px;
+}
+
+.skills h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.skills-list {
+  margin-bottom: 15px;
+}
+
+.skills ul {
+  list-style: none;
+  padding: 0;
+}
+
+.skills li {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 8px;
+}
+
+.skills li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 3px;
+  width: 8px;
+  height: 8px;
+  background-color: #ED6A6D;
+  border-radius: 50%;
+}
+
+
+/* Section Langues */
+.languages .langues {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.languages .langues > div {
+  text-align: center;
+  margin-bottom: 15px;
+  flex: 1;
+}
+
+.languages .langues > div p:first-child {
+  font-family: 'Helvetica', sans-serif;
+  font-weight: bold;
+  text-decoration: underline #ffbfbff7;
+  text-decoration-thickness: 2px;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.languages .langues > div p:last-child {
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  color: rgba(51, 51, 51, 0.7);
+}
+
+
+/* les petites coupes */
+.triangle-1 {
+  width: 0;
+  height: 0;
+  border-right: 17px solid #fff;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  position: absolute;
+  top: 219px;
+  right: -5px;
+}
+
+.triangle-2 {
+  width: 0;
+  height: 0;
+  border-right: 17px solid #fff;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  position: absolute;
+  top: 29px;
+  right: -5px;
+}
+
+.triangle-3 {
+  width: 0;
+  height: 0;
+  border-right: 17px solid #fff;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  position: absolute;
+  top: 420px;
+  right: -5px;
+}
+
+
+
+/* Section Contact */
+.jobTitle-contact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.jobTitle-contact p:first-child {
+  background-color: rgba(255, 191, 191, 1);
+  padding: 5px;
+  flex: 1;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  color: rgb(255, 255, 255);
+  white-space: nowrap;
+}
+
+.jobTitle-contact p:last-child {
+  background-color: rgba(196, 196, 196, 0.3);
+  color: #3434344c;
+  padding: 5px;
+  flex: 1;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.contact-info div {
+  display: flex;
+  width: calc(50% - 10px);
+  margin-bottom: 5px;
+}
+
+.contact-info div:first-child {
+  width: 100%; 
+}
+
+.contact-info svg {
+  margin-right: 5px;
+  width: 25px;
+  height: 25px;
+}
+
+.contact-info p, 
+.contact-info a {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  color: #231F20;
+  position: relative;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.contact-info p:after, 
+.contact-info a:after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #BBBDBF;
+  margin-top: 5px;
+}
+
+
+
+/* Section Education */
+.education-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.education-list div {
+  margin-bottom: 10px;
+}
+
+.education-list h3 {
+  font-family: 'Lato', sans-serif;
+  font-size: 15px;
+}
+
+.education-list p {
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  opacity: 0.7;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.education-list p:last-child {
+  color: #ffbfbff7;
+}
+
+
+
+/* Section Projets */
+.projects-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.projects-list div {
+  margin-bottom: 15px;
+}
+
+.projects-list p {
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  opacity: 0.7;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.projects-list h3 {
+  font-family: 'Lato', sans-serif;
+  font-size: 15px;
+}
+
+.projects-list div p:last-child {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+}
+
+.projects-list a {
+  font-family: 'Lato', sans-serif;
+  color: #ffbfbff7;
+  font-size: 14px;
+  text-decoration: none;
+  margin-top: 5px;
+}
+
+.projects-list a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+/* Section Hobbies */
+.hobbies-list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.hobbies-list div {
+  background-color: #FFBFBF;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hobbies-list svg {
+  width: 24px;
+  height: 24px;
+  fill: white;
+}
