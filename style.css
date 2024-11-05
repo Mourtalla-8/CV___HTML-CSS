@@ -6,7 +6,8 @@
 }
 
 body {
-  background-color: #f4f4f9;
+  /* background-color: #f4f4f9; */
+  background-image: url('background.png');
   color: #343434;
   display: flex;
   justify-content: center;
