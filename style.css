@@ -159,14 +159,14 @@ body {
 
 /* Section Skills */
 .skills {
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
 }
 
 .skills h3 {
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
   font-size: 14px;
-  margin-bottom: 10px;
+  margin-bottom: 7px;
 }
 
 .skills-list {
@@ -258,11 +258,9 @@ body {
   border-top: 9px solid transparent;
   border-bottom: 9px solid transparent;
   position: absolute;
-  top: 420px;
+  top: 424px;
   right: -5px;
 }
-
-
 
 /* Section Contact */
 .jobTitle-contact {
