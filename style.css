@@ -5,10 +5,20 @@
   box-sizing: border-box;
 }
 
+:root {
+  --font-sans: "Source Sans 3", "Aptos", "Segoe UI", "Calibri", "Helvetica Neue", Helvetica, sans-serif;
+  --font-serif: "Source Serif 4", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+}
+
 body {
   /* background-color: #f4f4f9; */
   background-image: url('background.png');
   color: #343434;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.45;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,14 +62,15 @@ body {
 }
 
 .profile-picture .svg {
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   background-color: rgba(143, 162, 171, 1);
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 20px auto;
+  overflow: hidden;
 }
 
 .profile-picture .svg svg {
@@ -68,12 +79,19 @@ body {
   fill: white;
 }
 
+.profile-picture .svg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .about h2 {
-  font-family: 'Helvetica', sans-serif;
-  font-weight: bold;
+  font-family: var(--font-sans);
+  font-weight: 700;
   font-size: 15px;
   color: #fff;
   text-align: right;
+  letter-spacing: 0.02em;
 }
 
 .about hr {
@@ -84,12 +102,12 @@ body {
 }
 
 .about p {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 300;
+  font-family: var(--font-sans);
+  font-weight: 400;
   font-size: 14px;
   color: rgba(255, 255, 255, 1);
   text-align: justify;
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 
@@ -103,11 +121,12 @@ body {
 }
 
 .left-down h2 {
-  font-family: 'Lato', sans-serif;
-  font-weight: 300;
+  font-family: var(--font-sans);
+  font-weight: 700;
   font-size: 15px;
   color: #343434;
   text-align: right;
+  letter-spacing: 0.02em;
 }
 
 .left-down hr {
@@ -125,12 +144,34 @@ body {
 }
 
 .header h1 {
-  font-family: 'Bellota Text', sans-serif;
-  font-weight: 300;
+  font-family: var(--font-serif);
+  font-weight: 700;
   font-size: 36px;
   color: #333;
   text-align: right;
   margin-bottom: 10px;
+  letter-spacing: 0.01em;
+  font-variant-numeric: tabular-nums;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 0.98;
+  padding-right: 3px;
+}
+
+,cv-name {
+  margin-bottom: 10px;
+}
+
+.header h1 .name-line {
+  display: block;
+  white-space: nowrap;
+  margin-bottom: 10px;
+}
+
+.header h1.is-scrambling .name-line {
+  direction: rtl;
+  unicode-bidi: plaintext;
 }
 
 .header p {
@@ -139,13 +180,15 @@ body {
 
 .education, .projects, .hobbies {
   margin-top: 5px;
+  margin-bottom: 10px;
 }
 
 .contact h2, .education h2, .projects h2, .hobbies h2 {
-  font-family: 'Lato', sans-serif;
-  font-weight: 300;
+  font-family: var(--font-sans);
+  font-weight: 700;
   font-size: 15px;
   color: #343434;
+  letter-spacing: 0.02em;
 }
 
 .contact hr, .education hr, .projects hr, .hobbies hr {
@@ -163,8 +206,8 @@ body {
 } */
 
 .skills h3 {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 300;
+  font-family: var(--font-sans);
+  font-weight: 600;
   font-size: 14px;
   margin-bottom: 7px;
 }
@@ -179,8 +222,8 @@ body {
 }
 
 .skills li {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 300;
+  font-family: var(--font-sans);
+  font-weight: 400;
   font-size: 12px;
   position: relative;
   padding-left: 20px;
@@ -213,8 +256,8 @@ body {
 }
 
 .languages .langues > div p:first-child {
-  font-family: 'Helvetica', sans-serif;
-  font-weight: bold;
+  font-family: var(--font-sans);
+  font-weight: 700;
   text-decoration: underline #ffbfbff7;
   text-decoration-thickness: 2px;
   font-size: 14px;
@@ -222,7 +265,8 @@ body {
 }
 
 .languages .langues > div p:last-child {
-  font-family: 'Lato', sans-serif;
+  font-family: var(--font-sans);
+  font-weight: 400;
   font-size: 10px;
   color: rgba(51, 51, 51, 0.7);
 }
@@ -274,7 +318,8 @@ body {
   padding: 5px;
   flex: 1;
   text-align: center;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-sans);
+  font-weight: 600;
   color: rgb(255, 255, 255);
   white-space: nowrap;
 }
@@ -285,7 +330,8 @@ body {
   padding: 5px;
   flex: 1;
   text-align: center;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-sans);
+  font-weight: 600;
 }
 
 .contact-info {
@@ -307,19 +353,25 @@ body {
 
 .contact-info svg {
   margin-right: 5px;
-  width: 25px;
-  height: 25px;
+  width: 18px;
+  height: 18px;
+}
+
+.contact-info .contact-phone svg {
+  width: 16px;
+  height: 16px;
 }
 
 .contact-info p, 
 .contact-info a {
-  font-family: 'Inter', sans-serif;
-  font-weight: 300;
+  font-family: var(--font-sans);
+  font-weight: 400;
   font-size: 12px;
   color: #231F20;
   position: relative;
   text-decoration: none;
   margin-bottom: 10px;
+  font-variant-numeric: tabular-nums;
 }
 
 .contact-info p:after, 
@@ -345,20 +397,23 @@ body {
 }
 
 .education-list h3 {
-  font-family: 'Lato', sans-serif;
+  font-family: var(--font-sans);
+  font-weight: 600;
   font-size: 15px;
 }
 
 .education-list p {
-  font-family: 'Lato', sans-serif;
+  font-family: var(--font-sans);
+  font-weight: 400;
   font-size: 14px;
   opacity: 0.7;
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 .education-list p:last-child {
   color: #ffbfbff7;
+  font-weight: 600;
 }
 
 
@@ -374,25 +429,29 @@ body {
 }
 
 .projects-list p {
-  font-family: 'Lato', sans-serif;
+  font-family: var(--font-sans);
+  font-weight: 400;
   font-size: 14px;
   opacity: 0.7;
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 .projects-list h3 {
-  font-family: 'Lato', sans-serif;
+  font-family: var(--font-sans);
+  font-weight: 600;
   font-size: 15px;
 }
 
 .projects-list div p:last-child {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-sans);
+  font-weight: 400;
   font-size: 14px;
 }
 
 .projects-list a {
-  font-family: 'Lato', sans-serif;
+  font-family: var(--font-sans);
+  font-weight: 600;
   color: #ffbfbff7;
   font-size: 14px;
   text-decoration: none;
@@ -409,29 +468,98 @@ body {
 /* Section Hobbies */
 .hobbies-list {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  gap: 23px;
 }
 
 .hobbies-list div {
-  background-color: #FFBFBF;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .hobbies-list svg {
+  color: #FFBFBF;
   width: 24px;
   height: 24px;
   fill: white;
 }
 
+.hobbies-list div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hobbies-list .hobby-label {
+  font-size: 8px;
+  text-align: center;
+  margin-top: 5px;
+  opacity: 1;
+}
 
 /* Supprimer le style par défaut du lien */
 .no-link-style {
   text-decoration: none;
   color: inherit;
+}
+
+/* Download FAB */
+.download-fab {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--fab-gap, 0px);
+  padding: 12px 14px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ff9f9f, #ff6b6b);
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, padding-right 0.25s ease;
+  z-index: 999;
+  overflow: hidden;
+}
+
+.download-fab .pdf-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.download-fab .download-text {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin-right: 0;
+  transform: translateX(-6px);
+  transition: max-width 0.26s ease, opacity 0.18s ease, margin-right 0.18s ease, transform 0.18s ease;
+}
+
+.download-fab:hover,
+.download-fab:focus-visible {
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.22);
+  --fab-gap: 8px;
+}
+
+.download-fab:hover .download-text,
+.download-fab:focus-visible .download-text {
+  max-width: 140px;
+  opacity: 1;
+  margin-right: 10px;
+  transform: translateX(0);
+}
+
+.download-fab:focus-visible {
+  outline: 2px solid rgba(255, 107, 107, 0.35);
+  outline-offset: 2px;
 }
