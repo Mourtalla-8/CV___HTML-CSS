@@ -9,7 +9,7 @@ Personal CV built with HTML and CSS. Open `index.html` in a browser or use the d
 | `index.html` | Content and structure |
 | `style.css` | Layout, typography, responsive rules |
 | `scramble.js` | Name animation on the header |
-| `download-pdf.js` | PDF export (uses html2pdf.js from CDN) |
+| `downloadPDF.js` | PDF export (uses html2pdf.js from CDN) |
 
 ## Local preview
 
