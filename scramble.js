@@ -1,8 +1,10 @@
+// Scramble animation for the name in #cv-name.
+// Decoy names flash first, then the real name resolves from right to left.
 (() => {
   const nameElementId = "cv-name";
 
-  // "TANJIRO / KAMADO" in multiple scripts/transliterations.
-  // Arabic is wrapped in direction isolate marks to avoid flipping the whole line.
+  // Demon Slayer easter egg - same joke in several scripts.
+  // Arabic strings use isolate marks so RTL does not flip the whole line.
   const decoyPairs = [
     { a: "TANJIRO", b: "KAMADO" },
     { a: "炭治郎", b: "竈門" },
@@ -15,45 +17,45 @@
   ];
 
   const prefersReducedMotion =
-    typeof window !== "undefined" &&
     typeof window.matchMedia === "function" &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  function uniqueCharsFromText(text) {
-    const chars = Array.from(text).filter((c) => c !== " " && c !== "\n" && c !== "\t");
-    return Array.from(new Set(chars));
+  function uniqueChars(text) {
+    return [...new Set([...text].filter((char) => !/\s/.test(char)))];
   }
 
-  function makePool(finalA, finalB) {
-    const base =
-      decoyPairs.map((p) => `${p.a}${p.b}`).join("") +
+  function charPool(finalA, finalB) {
+    const raw =
+      decoyPairs.map((pair) => pair.a + pair.b).join("") +
       finalA +
       finalB +
       "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    return uniqueCharsFromText(base);
+    return uniqueChars(raw);
   }
 
-  function pickRandom(arr) {
-    return arr[(Math.random() * arr.length) | 0];
+  function pickRandom(items) {
+    return items[(Math.random() * items.length) | 0];
   }
 
-  function buildScrambled(finalText, revealCount, pool, revealFromRight) {
-    const len = finalText.length;
-    let out = "";
-    for (let i = 0; i < len; i++) {
-      const finalChar = finalText[i];
-      if (finalChar === " ") {
-        out += " ";
+  function scrambleLine(text, revealCount, pool, fromRight) {
+    let output = "";
+
+    for (let i = 0; i < text.length; i++) {
+      const char = text[i];
+      if (char === " ") {
+        output += " ";
         continue;
       }
-      const resolved = revealFromRight ? i >= len - revealCount : i < revealCount;
-      out += resolved ? finalChar : pickRandom(pool);
+
+      const revealed = fromRight ? i >= text.length - revealCount : i < revealCount;
+      output += revealed ? char : pickRandom(pool);
     }
-    return out;
+
+    return output;
   }
 
-  function startScramble(parentEl, lineA, lineB, finalA, finalB, opts) {
-    const options = {
+  function startScramble(parentEl, lineA, lineB, finalA, finalB, opts = {}) {
+    const settings = {
       durationMs: 820,
       preludeMs: 260,
       switchEveryMs: 55,
@@ -70,83 +72,88 @@
       return;
     }
 
-    if (typeof parentEl._cancelScramble === "function") parentEl._cancelScramble();
+    if (typeof parentEl._cancelScramble === "function") {
+      parentEl._cancelScramble();
+    }
 
-    const pool = makePool(finalA, finalB);
-    const start = performance.now();
-    let rafId = 0;
-    let lastPreludeSwitchAt = -Infinity;
-    let lastFrameAt = -Infinity;
+    const pool = charPool(finalA, finalB);
+    const startedAt = performance.now();
+    let frameId = 0;
+    let lastDecoySwitch = -Infinity;
+    let lastFrame = -Infinity;
 
     parentEl.classList.add("is-scrambling");
 
     parentEl._cancelScramble = () => {
-      cancelAnimationFrame(rafId);
+      cancelAnimationFrame(frameId);
       parentEl.classList.remove("is-scrambling");
       parentEl._cancelScramble = null;
     };
 
     const tick = (now) => {
-      // Frame cap (stable on low-power devices / mobile).
-      if (now - lastFrameAt < 1000 / options.fps) {
-        rafId = requestAnimationFrame(tick);
+      const frameGap = 1000 / settings.fps;
+      if (now - lastFrame < frameGap) {
+        frameId = requestAnimationFrame(tick);
         return;
       }
-      lastFrameAt = now;
+      lastFrame = now;
 
-      const elapsed = now - start;
+      const elapsed = now - startedAt;
 
-      // Prelude: cycle through "TANJIRO / KAMADO" variants.
-      if (elapsed < options.preludeMs) {
-        if (elapsed - lastPreludeSwitchAt >= options.switchEveryMs) {
+      if (elapsed < settings.preludeMs) {
+        if (elapsed - lastDecoySwitch >= settings.switchEveryMs) {
           const pair = pickRandom(decoyPairs);
           lineA.textContent = pair.a;
           lineB.textContent = pair.b;
-          lastPreludeSwitchAt = elapsed;
+          lastDecoySwitch = elapsed;
         }
-        rafId = requestAnimationFrame(tick);
+        frameId = requestAnimationFrame(tick);
         return;
       }
 
-      const scrambleElapsed = elapsed - options.preludeMs;
-      const scrambleDuration = Math.max(1, options.durationMs - options.preludeMs);
-      const p = Math.min(1, scrambleElapsed / scrambleDuration);
-      const revealCountA = Math.floor(p * finalA.length);
-      const revealCountB = Math.floor(p * finalB.length);
+      const scrambleElapsed = elapsed - settings.preludeMs;
+      const scrambleDuration = Math.max(1, settings.durationMs - settings.preludeMs);
+      const progress = Math.min(1, scrambleElapsed / scrambleDuration);
 
-      // Reveal from right to left to match the right-aligned layout.
-      lineA.textContent = buildScrambled(finalA, revealCountA, pool, true);
-      lineB.textContent = buildScrambled(finalB, revealCountB, pool, true);
+      lineA.textContent = scrambleLine(finalA, Math.floor(progress * finalA.length), pool, true);
+      lineB.textContent = scrambleLine(finalB, Math.floor(progress * finalB.length), pool, true);
 
-      if (p < 1) {
-        rafId = requestAnimationFrame(tick);
-      } else {
-        lineA.textContent = finalA;
-        lineB.textContent = finalB;
-        parentEl.classList.remove("is-scrambling");
-        parentEl._cancelScramble = null;
+      if (progress < 1) {
+        frameId = requestAnimationFrame(tick);
+        return;
       }
+
+      lineA.textContent = finalA;
+      lineB.textContent = finalB;
+      parentEl.classList.remove("is-scrambling");
+      parentEl._cancelScramble = null;
     };
 
-    rafId = requestAnimationFrame(tick);
+    frameId = requestAnimationFrame(tick);
   }
 
   function init() {
-    const el = document.getElementById(nameElementId);
-    if (!el) return;
+    const nameEl = document.getElementById(nameElementId) || document.querySelector(".cv-name");
+    if (!nameEl) return;
 
-    const lines = el.querySelectorAll(".name-line");
-    if (!lines || lines.length < 2) return;
+    const lines = nameEl.querySelectorAll(".name-line");
+    if (lines.length < 2) return;
 
-    const lineA = lines[0];
-    const lineB = lines[1];
-    const finalA = (lineA.getAttribute("data-final") || lineA.textContent || "").trim();
-    const finalB = (lineB.getAttribute("data-final") || lineB.textContent || "").trim();
-    const run = () => startScramble(el, lineA, lineB, finalA, finalB);
+    const [lineA, lineB] = lines;
+    const finalA = (lineA.dataset.final || lineA.textContent || "").trim();
+    const finalB = (lineB.dataset.final || lineB.textContent || "").trim();
+    const run = () => startScramble(nameEl, lineA, lineB, finalA, finalB);
 
-    run(); // on load
-    el.addEventListener("mouseenter", run);
-    el.addEventListener("pointerdown", run);
+    run();
+    nameEl.addEventListener("mouseenter", run);
+    nameEl.addEventListener("focus", run);
+    nameEl.addEventListener("pointerdown", run);
+    nameEl.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        run();
+      }
+    });
   }
 
   if (document.readyState === "loading") {
