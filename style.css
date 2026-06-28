@@ -758,6 +758,7 @@ body {
   border-radius: 999px;
   background: linear-gradient(135deg, #ff9f9f, #ff6b6b);
   color: #fff;
+  text-decoration: none;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
   cursor: pointer;
   transition: transform 0.18s ease, box-shadow 0.18s ease, padding-right 0.25s ease;
@@ -803,11 +804,6 @@ body {
   outline: 3px solid #fff;
   outline-offset: 3px;
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.22), 0 0 0 3px var(--cv-focus);
-}
-
-.download-fab.is-busy {
-  opacity: 0.75;
-  cursor: wait;
 }
 
 /* Responsive layout */

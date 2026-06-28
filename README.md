@@ -1,6 +1,6 @@
 # CV — Mourtalla Toure
 
-Personal CV built with HTML and CSS. Open `index.html` in a browser or use the download button to save a PDF.
+Personal CV built with HTML and CSS. Open `index.html` in a browser or use the download button to save the static PDF.
 
 ## Files
 
@@ -9,7 +9,7 @@ Personal CV built with HTML and CSS. Open `index.html` in a browser or use the d
 | `index.html` | Content and structure |
 | `style.css` | Layout, typography, responsive rules |
 | `scramble.js` | Name animation on the header |
-| `downloadPDF.js` | PDF export (uses html2pdf.js from CDN) |
+| `CV_Mourtalla_Toure_Software_Engineer.pdf` | Static downloadable CV |
 
 ## Local preview
 
