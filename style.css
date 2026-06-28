@@ -1,4 +1,4 @@
-/* CV layout - Mourtalla Toure */
+/* Resume layout - Mourtalla Toure */
 * {
   margin: 0;
   padding: 0;
@@ -8,23 +8,23 @@
 :root {
   --font-sans: "Source Sans 3", "Aptos", "Segoe UI", "Calibri", "Helvetica Neue", Helvetica, sans-serif;
   --font-serif: "Source Serif 4", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  --cv-width: 750px;
-  --cv-left: 310px;
-  --cv-accent: rgba(255, 191, 191, 1);
-  --cv-accent-bg: rgba(255, 191, 191, 0.14);
-  --cv-card-bg: rgba(196, 196, 196, 0.12);
-  --cv-link: #c4a5a5;
-  --cv-link-hover: #a88888;
-  --cv-link-muted: rgba(52, 52, 52, 0.58);
-  --cv-link-muted-hover: rgba(52, 52, 52, 0.78);
-  --cv-text: #2e2e2e;
-  --cv-text-secondary: rgba(46, 46, 46, 0.72);
-  --cv-text-muted: rgba(46, 46, 46, 0.56);
-  --cv-text-on-accent: rgba(255, 255, 255, 0.95);
-  --cv-bullet: rgba(52, 52, 52, 0.32);
-  --cv-rule: rgba(52, 52, 52, 0.14);
-  --cv-rule-on-accent: rgba(255, 255, 255, 0.55);
-  --cv-focus: #9a4545;
+  --resume-width: 750px;
+  --resume-left: 310px;
+  --resume-accent: rgba(255, 191, 191, 1);
+  --resume-accent-bg: rgba(255, 191, 191, 0.14);
+  --resume-card-bg: rgba(196, 196, 196, 0.12);
+  --resume-link: #c4a5a5;
+  --resume-link-hover: #a88888;
+  --resume-link-muted: rgba(52, 52, 52, 0.58);
+  --resume-link-muted-hover: rgba(52, 52, 52, 0.78);
+  --resume-text: #2e2e2e;
+  --resume-text-secondary: rgba(46, 46, 46, 0.72);
+  --resume-text-muted: rgba(46, 46, 46, 0.56);
+  --resume-text-on-accent: rgba(255, 255, 255, 0.95);
+  --resume-bullet: rgba(52, 52, 52, 0.32);
+  --resume-rule: rgba(52, 52, 52, 0.14);
+  --resume-rule-on-accent: rgba(255, 255, 255, 0.55);
+  --resume-focus: #9a4545;
   --fs-xs: 10.5px;
   --fs-sm: 11.5px;
   --fs-base: 13px;
@@ -52,7 +52,7 @@ body {
   background-image: url('background.png');
   background-size: cover;
   background-position: center;
-  color: var(--cv-text);
+  color: var(--resume-text);
   font-family: var(--font-sans);
   font-size: clamp(13px, 1.6vw, 14px);
   line-height: var(--lh-body);
@@ -65,11 +65,11 @@ body {
   min-height: 100vh;
   min-height: 100dvh;
   padding: clamp(10px, 3vw, 15px);
-  padding-bottom: calc(clamp(10px, 3vw, 15px) + 72px);
+  padding-bottom: calc(clamp(10px, 3vw, 15px) + 78px);
   overflow-x: hidden;
 }
 
-.cv-main {
+.resume-main {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -95,7 +95,7 @@ body {
   padding: 10px 14px;
   border-radius: 6px;
   background: #fff;
-  color: var(--cv-text);
+  color: var(--resume-text);
   font-family: var(--font-sans);
   font-weight: 600;
   font-size: 14px;
@@ -105,14 +105,14 @@ body {
 
 .skip-link:focus-visible {
   top: 16px;
-  outline: 3px solid var(--cv-focus);
+  outline: 3px solid var(--resume-focus);
   outline-offset: 2px;
 }
 
 .container {
   display: flex;
   flex-direction: row;
-  width: min(var(--cv-width), 100%);
+  width: min(var(--resume-width), 100%);
   max-width: 100%;
   height: auto;
   background-color: #fff;
@@ -127,7 +127,7 @@ body {
 /* Sidebar (left column) - order keeps it visually on the left */
 .left {
   order: 1;
-  width: var(--cv-left);
+  width: var(--resume-left);
   max-width: 100%;
   flex-shrink: 0;
   display: flex;
@@ -145,7 +145,7 @@ body {
 /* Sidebar top: photo and summary */
 .left-up {
   height: auto;
-  background-color: var(--cv-accent);
+  background-color: var(--resume-accent);
   padding: clamp(14px, 3vw, 20px);
   position: relative;
 }
@@ -175,7 +175,7 @@ body {
 .profile-picture .svg svg {
   width: 90%;
   height: 90%;
-  fill: var(--cv-accent);
+  fill: var(--resume-accent);
 }
 
 .profile-picture .svg img {
@@ -188,7 +188,7 @@ body {
   font-family: var(--font-sans);
   font-weight: 700;
   font-size: var(--fs-lg);
-  color: var(--cv-text-on-accent);
+  color: var(--resume-text-on-accent);
   text-align: right;
   letter-spacing: var(--track-section);
 }
@@ -196,7 +196,7 @@ body {
 .summary hr {
   border: none;
   height: 1px;
-  background-color: var(--cv-rule-on-accent);
+  background-color: var(--resume-rule-on-accent);
   margin-bottom: 8px;
 }
 
@@ -204,7 +204,7 @@ body {
   font-family: var(--font-sans);
   font-weight: 400;
   font-size: var(--fs-base);
-  color: var(--cv-text-on-accent);
+  color: var(--resume-text-on-accent);
   text-align: justify;
   line-height: var(--lh-body);
   letter-spacing: 0.01em;
@@ -224,7 +224,7 @@ body {
   font-family: var(--font-sans);
   font-weight: 700;
   font-size: var(--fs-lg);
-  color: var(--cv-text);
+  color: var(--resume-text);
   text-align: right;
   letter-spacing: var(--track-section);
 }
@@ -232,7 +232,7 @@ body {
 .left-down hr {
   border: none;
   height: 1px;
-  background-color: var(--cv-rule);
+  background-color: var(--resume-rule);
   margin-bottom: 10px;
 }
 
@@ -242,7 +242,7 @@ body {
   font-family: var(--font-serif);
   font-weight: 700;
   font-size: var(--fs-name);
-  color: var(--cv-text);
+  color: var(--resume-text);
   text-align: right;
   margin-bottom: 10px;
   letter-spacing: 0.015em;
@@ -256,7 +256,7 @@ body {
 }
 
 .cv-name:focus-visible {
-  outline: 3px solid var(--cv-focus);
+  outline: 3px solid var(--resume-focus);
   outline-offset: 4px;
   border-radius: 4px;
 }
@@ -289,14 +289,14 @@ body {
   font-family: var(--font-sans);
   font-weight: 700;
   font-size: var(--fs-lg);
-  color: var(--cv-text);
+  color: var(--resume-text);
   letter-spacing: var(--track-section);
 }
 
 .contact hr, .education hr, .projects hr {
   border: none;
   height: 1px;
-  background-color: var(--cv-rule);
+  background-color: var(--resume-rule);
   margin-bottom: 12px;
 }
 
@@ -321,7 +321,7 @@ body {
   font-family: var(--font-sans);
   font-weight: 400;
   font-size: var(--fs-sm);
-  color: var(--cv-text-secondary);
+  color: var(--resume-text-secondary);
   position: relative;
   padding-left: 12px;
   margin-bottom: 5px;
@@ -338,7 +338,7 @@ body {
   height: auto;
   background: none;
   border-radius: 0;
-  color: var(--cv-bullet);
+  color: var(--resume-bullet);
   font-weight: 400;
   font-size: var(--fs-sm);
 }
@@ -359,7 +359,7 @@ body {
   font-family: var(--font-sans);
   font-weight: 600;
   font-size: var(--fs-sm);
-  color: var(--cv-text);
+  color: var(--resume-text);
   margin-bottom: 3px;
   letter-spacing: var(--track-label);
 }
@@ -369,7 +369,7 @@ body {
   font-weight: 400;
   font-size: var(--fs-xs);
   line-height: var(--lh-snug);
-  color: var(--cv-text-secondary);
+  color: var(--resume-text-secondary);
   letter-spacing: 0.01em;
 }
 
@@ -399,7 +399,7 @@ body {
   text-underline-offset: 3px;
   font-size: var(--fs-base);
   margin-bottom: 4px;
-  color: var(--cv-text);
+  color: var(--resume-text);
   letter-spacing: var(--track-label);
 }
 
@@ -407,7 +407,7 @@ body {
   font-family: var(--font-sans);
   font-weight: 400;
   font-size: var(--fs-xs);
-  color: var(--cv-text-muted);
+  color: var(--resume-text-muted);
   letter-spacing: 0.01em;
 }
 
@@ -422,7 +422,7 @@ body {
   font-family: var(--font-sans);
   font-weight: 600;
   font-size: var(--fs-sm);
-  color: var(--cv-text);
+  color: var(--resume-text);
   margin-bottom: 2px;
   letter-spacing: var(--track-label);
 }
@@ -432,7 +432,7 @@ body {
   font-weight: 400;
   font-size: var(--fs-xs);
   line-height: var(--lh-snug);
-  color: var(--cv-text-secondary);
+  color: var(--resume-text-secondary);
   letter-spacing: 0.01em;
 }
 
@@ -469,21 +469,21 @@ body {
 }
 
 .job-title p:first-child {
-  background-color: var(--cv-accent);
+  background-color: var(--resume-accent);
   padding: 5px;
   flex: 1;
   text-align: center;
   font-family: var(--font-sans);
   font-weight: 600;
   font-size: var(--fs-sm);
-  color: var(--cv-text-on-accent);
+  color: var(--resume-text-on-accent);
   white-space: nowrap;
   letter-spacing: 0.02em;
 }
 
 .job-title p:last-child {
   background-color: rgba(196, 196, 196, 0.3);
-  color: var(--cv-text-secondary);
+  color: var(--resume-text-secondary);
   padding: 5px;
   flex: 1;
   text-align: center;
@@ -516,7 +516,7 @@ body {
   font-family: var(--font-sans);
   font-weight: 400;
   font-size: clamp(11px, 2.8vw, 12px);
-  color: var(--cv-text-secondary);
+  color: var(--resume-text-secondary);
   text-decoration: none;
   font-variant-numeric: tabular-nums;
   line-height: var(--lh-snug);
@@ -532,13 +532,13 @@ body {
 }
 
 .contact-item:hover {
-  color: var(--cv-link-hover);
+  color: var(--resume-link-hover);
 }
 
 .contact-item:focus-visible {
-  outline: 2px solid var(--cv-focus);
+  outline: 2px solid var(--resume-focus);
   outline-offset: 2px;
-  color: var(--cv-link-hover);
+  color: var(--resume-link-hover);
 }
 
 .contact-sep {
@@ -565,7 +565,7 @@ body {
   font-weight: 600;
   font-size: var(--fs-md);
   line-height: var(--lh-snug);
-  color: var(--cv-text);
+  color: var(--resume-text);
   letter-spacing: 0.005em;
 }
 
@@ -573,28 +573,28 @@ body {
   font-family: var(--font-sans);
   font-weight: 400;
   font-size: var(--fs-base);
-  color: var(--cv-text-secondary);
+  color: var(--resume-text-secondary);
   margin: 0;
   line-height: var(--lh-body);
   letter-spacing: 0.01em;
 }
 
 .education-list .education-entry p:last-child {
-  color: var(--cv-link);
+  color: var(--resume-link);
   font-weight: 500;
   font-size: var(--fs-sm);
 }
 
 .no-link-style:focus-visible {
-  outline: 2px solid var(--cv-focus);
+  outline: 2px solid var(--resume-focus);
   outline-offset: 2px;
   border-radius: 2px;
 }
 
 .education-item--featured {
   padding: 10px 12px 10px 14px;
-  background: var(--cv-accent-bg);
-  border-left: 2px solid var(--cv-accent);
+  background: var(--resume-accent-bg);
+  border-left: 2px solid var(--resume-accent);
   border-radius: 0 4px 4px 0;
   margin-bottom: 12px;
 }
@@ -607,7 +607,7 @@ body {
 
 .education-more {
   text-align: center;
-  color: var(--cv-text-muted);
+  color: var(--resume-text-muted);
   font-size: var(--fs-sm);
   font-style: italic;
   letter-spacing: 0.01em;
@@ -642,14 +642,14 @@ body {
 
 .project-item--featured {
   padding: 10px 12px 10px 14px;
-  background: var(--cv-accent-bg);
-  border-left: 2px solid var(--cv-accent);
+  background: var(--resume-accent-bg);
+  border-left: 2px solid var(--resume-accent);
   border-radius: 0 4px 4px 0;
 }
 
 .projects-grid .project-item {
   padding: 8px 10px;
-  background: var(--cv-card-bg);
+  background: var(--resume-card-bg);
   border-radius: 4px;
 }
 
@@ -661,7 +661,7 @@ body {
   font-family: var(--font-sans);
   font-weight: 500;
   font-size: var(--fs-sm);
-  color: var(--cv-text-muted);
+  color: var(--resume-text-muted);
   margin: 0;
   line-height: var(--lh-snug);
   letter-spacing: 0.02em;
@@ -673,7 +673,7 @@ body {
   font-size: var(--fs-md);
   line-height: var(--lh-snug);
   margin-top: 2px;
-  color: var(--cv-text);
+  color: var(--resume-text);
   letter-spacing: 0.005em;
 }
 
@@ -681,7 +681,7 @@ body {
   font-family: var(--font-sans);
   font-weight: 400;
   font-size: var(--fs-xs);
-  color: var(--cv-text-muted);
+  color: var(--resume-text-muted);
   margin: 3px 0 5px;
   line-height: var(--lh-snug);
   letter-spacing: 0.015em;
@@ -701,7 +701,7 @@ body {
   position: relative;
   padding-left: 12px;
   margin-bottom: 3px;
-  color: var(--cv-text-secondary);
+  color: var(--resume-text-secondary);
   letter-spacing: 0.01em;
 }
 
@@ -709,7 +709,7 @@ body {
   content: "–";
   position: absolute;
   left: 0;
-  color: var(--cv-bullet);
+  color: var(--resume-bullet);
   font-weight: 400;
 }
 
@@ -717,7 +717,7 @@ body {
 .projects-more a {
   font-family: var(--font-sans);
   font-weight: 500;
-  color: var(--cv-link-muted);
+  color: var(--resume-link-muted);
   font-size: var(--fs-sm);
   text-decoration: none;
   border-radius: 3px;
@@ -727,16 +727,16 @@ body {
 
 .project-item a:hover,
 .projects-more a:hover {
-  color: var(--cv-link-muted-hover);
+  color: var(--resume-link-muted-hover);
   text-decoration: underline;
   text-decoration-color: rgba(52, 52, 52, 0.25);
 }
 
 .project-item a:focus-visible,
 .projects-more a:focus-visible {
-  outline: 2px solid var(--cv-focus);
+  outline: 2px solid var(--resume-focus);
   outline-offset: 2px;
-  color: var(--cv-link-muted-hover);
+  color: var(--resume-link-muted-hover);
 }
 
 /* Links that inherit surrounding text colour (education titles) */
@@ -756,7 +756,7 @@ body {
   padding: 12px 14px;
   border: none;
   border-radius: 999px;
-  background: linear-gradient(135deg, #ff9f9f, #ff6b6b);
+  background-color: var(--resume-accent);
   color: #fff;
   text-decoration: none;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
@@ -803,13 +803,96 @@ body {
 .download-fab:focus-visible {
   outline: 3px solid #fff;
   outline-offset: 3px;
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.22), 0 0 0 3px var(--cv-focus);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.22), 0 0 0 3px var(--resume-focus);
+}
+
+/* Language switch */
+.language-toggle {
+  --toggle-bg: rgba(255, 255, 255, 0.86);
+  --toggle-border: rgba(52, 52, 52, 0.12);
+  --toggle-shadow: rgba(0, 0, 0, 0.16);
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  z-index: 998;
+  width: 104px;
+  height: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 4px;
+  border: 1px solid var(--toggle-border);
+  border-radius: 999px;
+  background: var(--toggle-bg);
+  color: var(--resume-text-muted);
+  box-shadow: 0 10px 28px var(--toggle-shadow);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  cursor: pointer;
+  transform: translateX(-50%);
+  transition: opacity 0.18s ease, box-shadow 0.18s ease, transform 0.22s ease, visibility 0.18s ease;
+  visibility: visible;
+}
+
+.language-toggle__option {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  transition: color 0.18s ease;
+}
+
+.language-toggle__thumb {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: calc(50% - 4px);
+  height: calc(100% - 8px);
+  border-radius: 999px;
+  background-color: var(--resume-accent);
+  box-shadow: 0 6px 14px rgba(154, 69, 69, 0.22);
+  transition: transform 0.22s ease;
+}
+
+.language-toggle[data-lang="en"] .language-toggle__option--en,
+.language-toggle[data-lang="fr"] .language-toggle__option--fr {
+  color: #fff;
+}
+
+.language-toggle[data-lang="fr"] .language-toggle__thumb {
+  transform: translateX(100%);
+}
+
+.language-toggle:hover,
+.language-toggle:focus-visible {
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);
+  transform: translateX(-50%) translateY(-1px);
+}
+
+.language-toggle:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2), 0 0 0 3px var(--resume-focus);
+}
+
+.language-toggle.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(70px);
+  visibility: hidden;
 }
 
 /* Responsive layout */
 @media (max-width: 820px) {
   :root {
-    --cv-left: 42%;
+    --resume-left: 42%;
   }
 
   .projects-grid {
@@ -922,15 +1005,21 @@ body {
 
 @media (max-width: 420px) {
   body {
-    padding-bottom: calc(10px + 64px);
+    padding-bottom: calc(10px + 70px);
   }
 
   .download-fab {
     right: 12px;
-    bottom: 12px;
+    bottom: 68px;
     min-width: 48px;
     min-height: 48px;
     padding: 14px;
+  }
+
+  .language-toggle {
+    bottom: 12px;
+    width: 100px;
+    height: 38px;
   }
 
   .download-fab .download-text {
@@ -957,6 +1046,12 @@ body {
     margin-right: 10px;
     transform: none;
   }
+
+  .language-toggle,
+  .language-toggle__thumb,
+  .language-toggle__option {
+    transition-duration: 0.01ms !important;
+  }
 }
 
 @media print {
@@ -967,7 +1062,8 @@ body {
   }
 
   .skip-link,
-  .download-fab {
+  .download-fab,
+  .language-toggle {
     display: none !important;
   }
 
