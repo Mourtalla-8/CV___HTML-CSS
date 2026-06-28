@@ -3,18 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="CV of Mourtalla Toure - Software Engineer focused on backend development, web and mobile applications, and data analysis.">
-  <title>CV - MOURTALLA TOURE</title>
+  <meta name="description" content="Resume of Mourtalla Toure - Software Engineer focused on backend development, web and mobile applications, and data analysis.">
+  <title>Resume - MOURTALLA TOURE</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="scramble.js" defer></script>
+  <script src="language.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <main id="main-content" class="cv-main">
+  <main id="main-content" class="resume-main">
     <div class="container">
       <!-- Main column first in DOM for screen readers; visual order set in CSS -->
       <div class="right">
@@ -254,7 +255,7 @@
     </div>
   </main>
 
-  <a class="download-fab" href="CV_Mourtalla_Toure_Software_Engineer.pdf" download="CV_Mourtalla_Toure_Software_Engineer.pdf" aria-label="Download CV as PDF">
+  <a class="download-fab" href="Resume_Mourtalla_Toure_Software_Engineer.pdf" download="Resume_Mourtalla_Toure_Software_Engineer.pdf" aria-label="Download resume as PDF">
     <span class="download-text">Download</span>
     <span class="pdf-icon" aria-hidden="true">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" role="img" aria-hidden="true">
@@ -262,5 +263,10 @@
       </svg>
     </span>
   </a>
+  <button class="language-toggle" type="button" aria-label="Switch language to French" aria-pressed="false">
+    <span class="language-toggle__option language-toggle__option--en">EN</span>
+    <span class="language-toggle__thumb" aria-hidden="true"></span>
+    <span class="language-toggle__option language-toggle__option--fr">FR</span>
+  </button>
 </body>
 </html>
